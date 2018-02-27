@@ -1,0 +1,16 @@
+.DS_Store
+## Build generated
+build/
+DerivedData/
+
+xcuserdata/
+*.xcworkspace
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+#CocoaPods
+Pods/

@@ -1,0 +1,11 @@
+framework module SwiftyCrypto {
+  umbrella header "SwiftyCrypto.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftyCrypto.Swift {
+    header "SwiftyCrypto-Swift.h"
+    requires objc
+}
