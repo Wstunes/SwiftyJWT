@@ -50,7 +50,7 @@ class JWTRSAAlgorithmTests: XCTestCase {
         payload.expiration = 1516187993
         payload.issuer = "yufu"
         payload.subject = "shuo"
-        
+
 //        Test Payload content
 //        {
 //            "height": 181.5,
@@ -62,21 +62,21 @@ class JWTRSAAlgorithmTests: XCTestCase {
 //            "iss": "yufu"
 //        }
         payload.customFields = ["name": EncodableValue(value: "wang"),
-                                "isAdmin": EncodableValue(value: true),
-                                "age": EncodableValue(value: 125),
-                                "height": EncodableValue(value: 181.5)]
+            "isAdmin": EncodableValue(value: true),
+            "age": EncodableValue(value: 125),
+            "height": EncodableValue(value: 181.5)]
         let alg = JWTAlgorithm.rs256(privateKey)
 
         guard let jwtWithKeyId = JWT.init(payload: payload, algorithm: alg, header: headerWithKeyId)
             else {
                 return XCTFail()
         }
-        guard let simpleJwt = JWT.init(payload: payload, algorithm: alg)else {
+        guard let simpleJwt = JWT.init(payload: payload, algorithm: alg) else {
             return XCTFail()
         }
-        
-        XCTAssert(nil != jwtWithKeyId.rawString)
-        XCTAssert(nil != simpleJwt.rawString)
+
+        XCTAssert(jwtWithKeyId.rawString == "eyJhbGciOiJSUzI1NiIsImtpZCI6InRlc3RLZXlJZCIsInR5cCI6IkpXVCJ9.eyJoZWlnaHQiOjE4MS41LCJhZ2UiOjEyNSwic3ViIjoic2h1byIsImlzQWRtaW4iOnRydWUsImV4cCI6MTUxNjE4Nzk5MywibmFtZSI6IndhbmciLCJpc3MiOiJ5dWZ1In0.3ouyzwI5L5ZrWGg_CjAtzlI2erRtkQq5p40Ejz8fKa7iXkJesIcjUZr7kyyxYP2SMWrjjaiAl6oglc-bWA93ttR3c1s3BwC1aIoiJFEMQOQUixCzWovPPI3r93yVHLYZKNyXGBfxHrmbJvF809S8oU8lmrCDbxPdPyAANvqeEnTsoJgxTLIH1_ucclGYM9KdkzEUfUwXAr_1TKVYPLwsBfUifwX62I2KeBbDXLR9blySUhgugn5MhkLz6_qrwRmHUUQ-HfKuEKDJdzMzP1o5a0WLXSclwMuuAqINP0604uR0rJ1M6kaQKhnMY9o5A2o3Fhg9iPXZMk94qUVm6B_01A")
+        XCTAssert(simpleJwt.rawString == "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJoZWlnaHQiOjE4MS41LCJhZ2UiOjEyNSwic3ViIjoic2h1byIsImlzQWRtaW4iOnRydWUsImV4cCI6MTUxNjE4Nzk5MywibmFtZSI6IndhbmciLCJpc3MiOiJ5dWZ1In0.bJ-kTBt9jI_vsIXJsJi3YGcr1swD41UTwSRRfHouM1-aaF5v9zEUQ4uGT2WYY0CUI5aEocfogo9P-1UKMlWfZ0orMEk6m5eaiI4yrQfffuOwZ6Kalhm0b1SkVmjfJp1xMcf_gtJgilXAN8s4ubs_5n_IS3rjiLojJcGc2Y17AhccXgLOPZp95UMPd1ulbLT5fNhlfw672jHSzIGmtYLa00Vh6oZJfpRrcSq_H_skLueJ3Jv_JvzcjppWsT6Zm-ObL3gaEKxWlmGYeZORFfmUXs4loFTwemJ1vWNGV7koNZVj6ZZTgrur61h92R8j5tSGQBpU3-esORu0emxQ936YaA")
     }
 
 }
