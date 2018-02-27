@@ -9,9 +9,9 @@
 import XCTest
 import SwiftyCrypto
 
-class JWTRSAAlgorithmTests: XCTestCase {
+class JWTRSATests: XCTestCase {
 
-    let bundle = Bundle(for: JWTRSAAlgorithmTests.self)
+    let bundle = Bundle(for: JWTRSATests.self)
     var publicKeyString: String?
     var privateKeyString: String?
     var privateKey: RSAKey!

@@ -17,6 +17,11 @@ public enum JWTAlgorithm: CustomStringConvertible {
     case rs384(RSAKey)
     case rs512(RSAKey)
 
+    // HSxxx - HMAC using SHA-xxx hash algorithm
+    case hs256(String)
+    case hs384(String)
+    case hs512(String)
+
     public var description: String {
         switch self {
         case .none:
@@ -27,6 +32,12 @@ public enum JWTAlgorithm: CustomStringConvertible {
             return "RS384"
         case .rs512:
             return "RS512"
+        case .hs256:
+            return "HS256"
+        case .hs384:
+            return "HS384"
+        case .hs512:
+            return "HS512"
         }
     }
 
@@ -40,6 +51,12 @@ public enum JWTAlgorithm: CustomStringConvertible {
             return signWithRSA(key: key, rawMessageTobeSigned: message)
         case .rs512(let key):
             return signWithRSA(key: key, rawMessageTobeSigned: message)
+        case .hs256(let key):
+            return hashWithHS(alg: .sha256, key: key, rawMessageTobeSigned: message)
+        case .hs384(let key):
+            return hashWithHS(alg: .sha384, key: key, rawMessageTobeSigned: message)
+        case .hs512(let key):
+            return hashWithHS(alg: .sha512, key: key, rawMessageTobeSigned: message)
         }
     }
 
@@ -52,4 +69,13 @@ public enum JWTAlgorithm: CustomStringConvertible {
             return nil
         }
     }
+
+    private func hashWithHS(alg: HMACAlgorithm, key: String, rawMessageTobeSigned: String) -> String? {
+        guard let messageData = rawMessageTobeSigned.data(using: String.Encoding.utf8, allowLossyConversion: false),
+            let keyData = key.data(using: String.Encoding.utf8, allowLossyConversion: false)
+            else { return nil }
+        let hasedData = hmac(algorithm: alg, key: keyData, message: messageData)
+        return Base64Utils.base64encodeURISafe(input: hasedData)
+    }
 }
+

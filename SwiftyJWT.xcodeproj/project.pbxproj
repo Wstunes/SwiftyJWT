@@ -26,7 +26,7 @@
 		B759B2CB2010430000DDFB10 /* private.txt in Resources */ = {isa = PBXBuildFile; fileRef = B759B2C82010430000DDFB10 /* private.txt */; };
 		B759B2CC2010430000DDFB10 /* public.txt in Resources */ = {isa = PBXBuildFile; fileRef = B759B2C92010430000DDFB10 /* public.txt */; };
 		B759B2CD2010430000DDFB10 /* public.txt in Resources */ = {isa = PBXBuildFile; fileRef = B759B2C92010430000DDFB10 /* public.txt */; };
-		B759B2CF2010701A00DDFB10 /* JWTRSAAlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759B2CE2010701A00DDFB10 /* JWTRSAAlgorithmTests.swift */; };
+		B759B2CF2010701A00DDFB10 /* JWTRSATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759B2CE2010701A00DDFB10 /* JWTRSATests.swift */; };
 		B759B2D520107D5C00DDFB10 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759B2D420107D5C00DDFB10 /* JWT.swift */; };
 		B759B2D620107D5C00DDFB10 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759B2D420107D5C00DDFB10 /* JWT.swift */; };
 		B7B209C7204433F4003BB264 /* SwiftyCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B209C6204433F4003BB264 /* SwiftyCrypto.framework */; };
@@ -38,6 +38,7 @@
 		B7B20A0620443B19003BB264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B20A0420443B19003BB264 /* LaunchScreen.storyboard */; };
 		B7B20A1120443B1A003BB264 /* SwiftyJWTTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B20A1020443B1A003BB264 /* SwiftyJWTTestAppTests.swift */; };
 		B7B20A1B204502E5003BB264 /* SwiftyCrypto.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7B209C6204433F4003BB264 /* SwiftyCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B7B20A1D20455E5B003BB264 /* JWTHSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B20A1C20455E5B003BB264 /* JWTHSTests.swift */; };
 		B7FF17C320162F1100030917 /* EncodableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF17C220162F1100030917 /* EncodableValue.swift */; };
 		B7FF17C420162F1100030917 /* EncodableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF17C220162F1100030917 /* EncodableValue.swift */; };
 /* End PBXBuildFile section */
@@ -94,7 +95,7 @@
 		B759B2BF200F905E00DDFB10 /* DynamicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicKey.swift; sourceTree = "<group>"; };
 		B759B2C82010430000DDFB10 /* private.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = private.txt; sourceTree = "<group>"; };
 		B759B2C92010430000DDFB10 /* public.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = public.txt; sourceTree = "<group>"; };
-		B759B2CE2010701A00DDFB10 /* JWTRSAAlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTRSAAlgorithmTests.swift; sourceTree = "<group>"; };
+		B759B2CE2010701A00DDFB10 /* JWTRSATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTRSATests.swift; sourceTree = "<group>"; };
 		B759B2D420107D5C00DDFB10 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
 		B7B209C6204433F4003BB264 /* SwiftyCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyCrypto.framework; sourceTree = "<group>"; };
 		B7B209F920443B19003BB264 /* SwiftyJWTTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyJWTTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +108,7 @@
 		B7B20A0C20443B1A003BB264 /* SwiftyJWTTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyJWTTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7B20A1020443B1A003BB264 /* SwiftyJWTTestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJWTTestAppTests.swift; sourceTree = "<group>"; };
 		B7B20A1220443B1A003BB264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7B20A1C20455E5B003BB264 /* JWTHSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTHSTests.swift; sourceTree = "<group>"; };
 		B7FF17C220162F1100030917 /* EncodableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,7 +188,8 @@
 				B759B2C82010430000DDFB10 /* private.txt */,
 				B759B2C92010430000DDFB10 /* public.txt */,
 				B759B2BD200F4D4000DDFB10 /* CompactJSONEncoderTests.swift */,
-				B759B2CE2010701A00DDFB10 /* JWTRSAAlgorithmTests.swift */,
+				B759B2CE2010701A00DDFB10 /* JWTRSATests.swift */,
+				B7B20A1C20455E5B003BB264 /* JWTHSTests.swift */,
 			);
 			path = SwiftyJWTTests;
 			sourceTree = "<group>";
@@ -443,8 +446,9 @@
 				B759B2BE200F4D4000DDFB10 /* CompactJSONEncoderTests.swift in Sources */,
 				B759B2AA200F372200DDFB10 /* JWTHeader.swift in Sources */,
 				B759B2D620107D5C00DDFB10 /* JWT.swift in Sources */,
-				B759B2CF2010701A00DDFB10 /* JWTRSAAlgorithmTests.swift in Sources */,
+				B759B2CF2010701A00DDFB10 /* JWTRSATests.swift in Sources */,
 				B759B2AE200F378700DDFB10 /* JWTAlgorithm.swift in Sources */,
+				B7B20A1D20455E5B003BB264 /* JWTHSTests.swift in Sources */,
 				B7FF17C420162F1100030917 /* EncodableValue.swift in Sources */,
 				B759B2A6200F35A600DDFB10 /* Base64Utils.swift in Sources */,
 				B759B2B1200F3EDF00DDFB10 /* JWTPayload.swift in Sources */,
