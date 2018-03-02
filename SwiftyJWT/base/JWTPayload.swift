@@ -36,16 +36,18 @@ public struct JWTPayload: Codable {
         issuer = try container.decodeIfPresent(String.self, forKey: DynamicKey(stringValue: JWTPayloadKeys.issuer.rawValue))
         subject = try container.decodeIfPresent(String.self, forKey: DynamicKey(stringValue: JWTPayloadKeys.subject.rawValue))
         audience = try container.decodeIfPresent(String.self, forKey: DynamicKey(stringValue: JWTPayloadKeys.audience.rawValue))
-        if let exp = try container.decodeIfPresent(String.self, forKey: DynamicKey(stringValue: JWTPayloadKeys.expiration.rawValue)) {
-            expiration = Int(exp)
-        }
-        if let nbf = try container.decodeIfPresent(String.self, forKey: DynamicKey(stringValue: JWTPayloadKeys.notBefore.rawValue)) {
-            notBefore = Int(nbf)
-        }
-        if let iat = try container.decodeIfPresent(String.self, forKey: DynamicKey(stringValue: JWTPayloadKeys.issueAt.rawValue)) {
-            issueAt = Int(iat)
-        }
+        expiration = try container.decodeIfPresent(Int.self, forKey: DynamicKey(stringValue: JWTPayloadKeys.expiration.rawValue))
+        notBefore = try container.decodeIfPresent(Int.self, forKey: DynamicKey(stringValue: JWTPayloadKeys.notBefore.rawValue))
+        issueAt = try container.decodeIfPresent(Int.self, forKey: DynamicKey(stringValue: JWTPayloadKeys.issueAt.rawValue))
         jwtId = try container.decodeIfPresent(String.self, forKey: DynamicKey(stringValue: JWTPayloadKeys.jwtId.rawValue))
+        let customKeys = container.allKeys
+            .filter({ !JWTPayload.reservedKeys.contains($0.stringValue) })
+        if 0 < customKeys.count {
+            customFields = [:]
+            for key in customKeys {
+                customFields![key.stringValue] = try container.decodeIfPresent(EncodableValue.self, forKey: key)
+            }
+        }
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -75,4 +77,6 @@ public struct JWTPayload: Codable {
         case issueAt = "iat"
         case jwtId = "jti"
     }
+
+    static let reservedKeys = ["iss", "sub", "aud", "exp", "nbf", "iat", "jti"]
 }

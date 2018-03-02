@@ -8,10 +8,29 @@
 
 import Foundation
 
-struct EncodableValue: Encodable {
+struct EncodableValue: Codable {
     let value: Encodable
-    
+
     func encode(to encoder: Encoder) throws {
         try value.encode(to: encoder)
+    }
+
+    init(value _value: Encodable) {
+        value = _value
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let intVal = try? container.decode(Int.self) {
+            value = intVal
+        } else if let doubleVal = try? container.decode(Double.self) {
+            value = doubleVal
+        } else if let boolVal = try? container.decode(Bool.self) {
+            value = boolVal
+        } else if let stringVal = try? container.decode(String.self) {
+            value = stringVal
+        } else {
+            throw DecodingError.dataCorruptedError(in: container, debugDescription: "the container contains nothing to serialize")
+        }
     }
 }
