@@ -16,7 +16,12 @@ class Base64Utils: NSObject {
         let string = String(data: data, encoding: .utf8)!
         return string
     }
-    
+
+    static func base64encode(input: String) -> String? {
+        let data = input.data(using: String.Encoding.utf8)
+        return data?.base64EncodedString()
+    }
+
     // URI Safe base64 encode
     static func stringURISafe(input: String) -> String {
         return input
@@ -60,7 +65,8 @@ class Base64Utils: NSObject {
     }
 
     static func base64StringWithPadding(encodedString: String) -> String {
-        var stringTobeEncoded = encodedString
+        var stringTobeEncoded = encodedString.replacingOccurrences(of: "-", with: "+")
+            .replacingOccurrences(of: "_", with: "/")
         let paddingCount = encodedString.count % 4
         for _ in 0..<paddingCount {
             stringTobeEncoded += "="

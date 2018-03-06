@@ -45,18 +45,62 @@ public enum JWTAlgorithm: CustomStringConvertible {
         switch self {
         case .none:
             return ""
-        case .rs256(let key):
-            return signWithRSA(key: key, rawMessageTobeSigned: message)
-        case .rs384(let key):
-            return signWithRSA(key: key, rawMessageTobeSigned: message)
-        case .rs512(let key):
-            return signWithRSA(key: key, rawMessageTobeSigned: message)
+        case .rs256(let privateKey):
+            return signWithRSA(key: privateKey, rawMessageTobeSigned: message)
+        case .rs384(let privateKey):
+            return signWithRSA(key: privateKey, rawMessageTobeSigned: message)
+        case .rs512(let privateKey):
+            return signWithRSA(key: privateKey, rawMessageTobeSigned: message)
         case .hs256(let key):
             return hashWithHS(alg: .sha256, key: key, rawMessageTobeSigned: message)
         case .hs384(let key):
             return hashWithHS(alg: .sha384, key: key, rawMessageTobeSigned: message)
         case .hs512(let key):
             return hashWithHS(alg: .sha512, key: key, rawMessageTobeSigned: message)
+        }
+    }
+
+    public func verify(base64EncodedSignature: String, rawMessage: String) throws -> Bool {
+
+        func verify(hmacAlg: HMACAlgorithm, key: String, signatureSegment: String, rawMessage: String) -> Bool {
+            guard let urlUnsafeHashedString = hashWithHS(alg: hmacAlg, key: key, rawMessageTobeSigned: rawMessage) else {
+                return false
+            }
+
+            return signatureSegment == urlUnsafeHashedString ||
+                signatureSegment == Base64Utils.stringURISafe(input: urlUnsafeHashedString)
+        }
+
+        func verify(publicKey: RSAKey, signatureSegment: String, rawMessage: String) -> Bool {
+
+            guard let sigData = Data.init(base64Encoded: Base64Utils.base64StringWithPadding(encodedString: signatureSegment)) else {
+                return false
+            }
+            let sig = RSASignature.init(data: sigData)
+
+            guard let encodedMessage = Base64Utils.base64encode(input: rawMessage),
+                let rsaMessage = try? RSAMessage.init(base64String: encodedMessage),
+                let res = try? rsaMessage.verify(verifyKey: publicKey, signature: sig, digestType: RSASignature.DigestType.sha256) else {
+                    return false
+            }
+            return res
+        }
+
+        switch self {
+        case .none:
+            return true
+        case .rs256(let publicKey):
+            return verify(publicKey: publicKey, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
+        case .rs384(let publicKey):
+            return verify(publicKey: publicKey, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
+        case .rs512(let publicKey):
+            return verify(publicKey: publicKey, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
+        case .hs256(let key):
+            return verify(hmacAlg: HMACAlgorithm.sha256, key: key, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
+        case .hs384(let key):
+            return verify(hmacAlg: HMACAlgorithm.sha384, key: key, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
+        case .hs512(let key):
+            return verify(hmacAlg: HMACAlgorithm.sha512, key: key, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
         }
     }
 
@@ -75,7 +119,7 @@ public enum JWTAlgorithm: CustomStringConvertible {
             let keyData = key.data(using: String.Encoding.utf8, allowLossyConversion: false)
             else { return nil }
         let hasedData = hmac(algorithm: alg, key: keyData, message: messageData)
-        return Base64Utils.base64encodeURISafe(input: hasedData)
+        return hasedData.base64EncodedString()
     }
 }
 

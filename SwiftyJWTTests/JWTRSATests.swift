@@ -15,6 +15,7 @@ class JWTRSATests: XCTestCase {
     var publicKeyString: String?
     var privateKeyString: String?
     var privateKey: RSAKey!
+    var publicKey: RSAKey!
 
     override func setUp() {
         super.setUp()
@@ -31,6 +32,7 @@ class JWTRSATests: XCTestCase {
                 return XCTFail()
         }
         privateKey = try! RSAKey.init(base64String: privateKeyString!, keyType: .PRIVATE)
+        publicKey = try! RSAKey.init(base64String: publicKeyString!, keyType: .PUBLIC)
     }
 
     func testRSA256Alg() {
@@ -77,6 +79,18 @@ class JWTRSATests: XCTestCase {
 
         XCTAssert(jwtWithKeyId.rawString == "eyJhbGciOiJSUzI1NiIsImtpZCI6InRlc3RLZXlJZCIsInR5cCI6IkpXVCJ9.eyJoZWlnaHQiOjE4MS41LCJhZ2UiOjEyNSwic3ViIjoic2h1byIsImlzQWRtaW4iOnRydWUsImV4cCI6MTUxNjE4Nzk5MywibmFtZSI6IndhbmciLCJpc3MiOiJ5dWZ1In0.3ouyzwI5L5ZrWGg_CjAtzlI2erRtkQq5p40Ejz8fKa7iXkJesIcjUZr7kyyxYP2SMWrjjaiAl6oglc-bWA93ttR3c1s3BwC1aIoiJFEMQOQUixCzWovPPI3r93yVHLYZKNyXGBfxHrmbJvF809S8oU8lmrCDbxPdPyAANvqeEnTsoJgxTLIH1_ucclGYM9KdkzEUfUwXAr_1TKVYPLwsBfUifwX62I2KeBbDXLR9blySUhgugn5MhkLz6_qrwRmHUUQ-HfKuEKDJdzMzP1o5a0WLXSclwMuuAqINP0604uR0rJ1M6kaQKhnMY9o5A2o3Fhg9iPXZMk94qUVm6B_01A")
         XCTAssert(simpleJwt.rawString == "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJoZWlnaHQiOjE4MS41LCJhZ2UiOjEyNSwic3ViIjoic2h1byIsImlzQWRtaW4iOnRydWUsImV4cCI6MTUxNjE4Nzk5MywibmFtZSI6IndhbmciLCJpc3MiOiJ5dWZ1In0.bJ-kTBt9jI_vsIXJsJi3YGcr1swD41UTwSRRfHouM1-aaF5v9zEUQ4uGT2WYY0CUI5aEocfogo9P-1UKMlWfZ0orMEk6m5eaiI4yrQfffuOwZ6Kalhm0b1SkVmjfJp1xMcf_gtJgilXAN8s4ubs_5n_IS3rjiLojJcGc2Y17AhccXgLOPZp95UMPd1ulbLT5fNhlfw672jHSzIGmtYLa00Vh6oZJfpRrcSq_H_skLueJ3Jv_JvzcjppWsT6Zm-ObL3gaEKxWlmGYeZORFfmUXs4loFTwemJ1vWNGV7koNZVj6ZZTgrur61h92R8j5tSGQBpU3-esORu0emxQ936YaA")
+    }
+
+    func testVerifyTokenSignedWithRS256() {
+
+        let alg = JWTAlgorithm.rs256(publicKey)
+        let jwtString = "eyJhbGciOiJSUzI1NiIsImtpZCI6InRlc3RLZXlJZCIsInR5cCI6IkpXVCJ9.eyJoZWlnaHQiOjEyMS41LCJhZ2UiOjEyNSwic3ViIjoic2h1byIsImlzQWRtaW4iOnRydWUsImV4cCI6NTE1NjE2MTg3OTkzLCJuYW1lIjoid2FuZyIsImlzcyI6Inl1ZnUifQ.cR56Xc9+Xz/ML8ah47Ve3nCkJXmLm4OyOYgbZHxk92q59o8A9KCS3NDXDTDuo5qTQW9tITsoNQKh9x9e9ZI2LfCrzArNTQ0WUShGqRXguC1hC+EfCHEZvOwfzClpSSqYiDMPEGsqTXoy3mE9lSdNDq3O60+DOFytQEE4/PmOYgRM7XbyGPGe6jZn7y9kMM4uZL37+1MCvJIxvBcDZuA26YV4X7XqEg2JznMDoKbBqYJNqE5D8Wh6HJEJuJ5Yd/MGTYZaDpRLNQlF4EVV2843EZWuNq6juvZwXN4Ias53aSfhx2Q4yQqZYqgVSZ1WW2R3wOzD9AJZlwW2thMbgQnVIg=="
+        let jwt1 = try? JWT.init(algorithm: alg, rawString: jwtString)
+        XCTAssertNotNil(jwt1)
+
+        let jwtStringUrlSafe = "eyJhbGciOiJSUzI1NiIsImtpZCI6InRlc3RLZXlJZCIsInR5cCI6IkpXVCJ9.eyJoZWlnaHQiOjEyMS41LCJhZ2UiOjEyNSwic3ViIjoic2h1byIsImlzQWRtaW4iOnRydWUsImV4cCI6NTE1NjE2MTg3OTkzLCJuYW1lIjoid2FuZyIsImlzcyI6Inl1ZnUifQ.cR56Xc9-Xz_ML8ah47Ve3nCkJXmLm4OyOYgbZHxk92q59o8A9KCS3NDXDTDuo5qTQW9tITsoNQKh9x9e9ZI2LfCrzArNTQ0WUShGqRXguC1hC-EfCHEZvOwfzClpSSqYiDMPEGsqTXoy3mE9lSdNDq3O60-DOFytQEE4_PmOYgRM7XbyGPGe6jZn7y9kMM4uZL37-1MCvJIxvBcDZuA26YV4X7XqEg2JznMDoKbBqYJNqE5D8Wh6HJEJuJ5Yd_MGTYZaDpRLNQlF4EVV2843EZWuNq6juvZwXN4Ias53aSfhx2Q4yQqZYqgVSZ1WW2R3wOzD9AJZlwW2thMbgQnVIg"
+        let jwt2 = try? JWT.init(algorithm: alg, rawString: jwtStringUrlSafe)
+        XCTAssertNotNil(jwt2)
     }
 
 }

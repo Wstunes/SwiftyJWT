@@ -44,4 +44,30 @@ public struct JWT {
             Base64Utils.stringURISafe(input: inputTobeSigned),
             Base64Utils.stringURISafe(input: signature))
     }
+
+    init(algorithm: JWTAlgorithm,
+        rawString: String) throws {
+
+        let segments = rawString.components(separatedBy: ".")
+        if segments.count != 3 {
+            throw InvalidTokenError.decodeError("The number of segments is not 3")
+        }
+
+        let encodedHeader = segments[0]
+        let encodedPayload = segments[1]
+        let signatureSegment = segments[2]
+
+        self.header = try CompactJSONDecoder.shared.decode(JWTHeader.self, from: encodedHeader)
+        self.payload = try CompactJSONDecoder.shared.decode(JWTPayload.self, from: encodedPayload)
+        try self.payload.checkExpiration()
+        try self.payload.checkIssueAt(allowNil: true)
+        try self.payload.checkNotBefore(allowNil: true)
+
+        if try !algorithm.verify(base64EncodedSignature: signatureSegment, rawMessage: "\(encodedHeader).\(encodedPayload)") {
+            throw InvalidTokenError.invalidSignature()
+        }
+
+        self.signature = signatureSegment
+        self.rawString = rawString
+    }
 }

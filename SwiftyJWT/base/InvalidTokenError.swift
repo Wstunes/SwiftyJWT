@@ -14,6 +14,9 @@ enum InvalidTokenError: CustomStringConvertible, Error {
 
     /// The JWT uses an unsupported algorithm
     case invalidAlgorithm(String)
+    
+    /// The JWT signature can not be verified
+    case invalidSignature()
 
     /// The token has expired
     case expiredToken(String)
@@ -35,6 +38,9 @@ enum InvalidTokenError: CustomStringConvertible, Error {
 
     /// The JTI of the claim doesn't match
     case invalidJTI(String)
+    
+    /// The argument is missing or illegal
+    case invalidOrMissingArgument(String)
 
     public var description: String {
         switch self {
@@ -56,6 +62,10 @@ enum InvalidTokenError: CustomStringConvertible, Error {
             return "Invalid Subject: \(sub)"
         case .invalidJTI(let jti):
             return "Invalid JTI: \(jti)"
+        case .invalidOrMissingArgument(let argumentName) :
+            return "InvalidOrMissingArgument: \(argumentName)"
+        case .invalidSignature():
+            return "InvalidSignature"
         }
     }
 }
