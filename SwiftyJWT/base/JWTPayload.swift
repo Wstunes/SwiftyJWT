@@ -112,17 +112,59 @@ public struct JWTPayload: Codable {
             throw error
         }
     }
-    
-    public func checkNotBefore(allowNil: Bool) throws{
+
+    public func checkNotBefore(allowNil: Bool) throws {
         try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.notBefore.rawValue), rightCompareResult: .orderedAscending, allowNil: allowNil)
     }
-    
-    public func checkExpiration() throws{
+
+    public func checkExpiration() throws {
         try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.expiration.rawValue), rightCompareResult: .orderedDescending, allowNil: false)
     }
-    
-    public func checkIssueAt(allowNil: Bool) throws{
+
+    public func checkIssueAt(allowNil: Bool) throws {
         try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.issueAt.rawValue), rightCompareResult: .orderedAscending, allowNil: allowNil)
+    }
+
+    private let nullValue = "null"
+
+    public func checkIssuer(expected: String) throws {
+        if let iss = self.issuer {
+            if iss != expected {
+                throw InvalidTokenError.invalidIssuer(iss)
+            }
+        } else {
+            throw InvalidTokenError.invalidIssuer(nullValue)
+        }
+    }
+
+    public func checkSubject(expected: String) throws {
+        if let sub = self.subject {
+            if sub != expected {
+                throw InvalidTokenError.invalidSubject(sub)
+            }
+        } else {
+            throw InvalidTokenError.invalidSubject(nullValue)
+        }
+    }
+
+    public func checkAudience(expected: String) throws {
+        if let aud = self.audience {
+            if aud != expected {
+                throw InvalidTokenError.invalidAudience(aud)
+            }
+        } else {
+            throw InvalidTokenError.invalidAudience(nullValue)
+        }
+    }
+
+    public func checkJTI(expected: String) throws {
+        if let jti = self.jwtId {
+            if jti != expected {
+                throw InvalidTokenError.invalidJTI(jti)
+            }
+        } else {
+            throw InvalidTokenError.invalidJTI(nullValue)
+        }
     }
 
 }

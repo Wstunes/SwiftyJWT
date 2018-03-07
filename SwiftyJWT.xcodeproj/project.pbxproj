@@ -30,6 +30,7 @@
 		B759B2D520107D5C00DDFB10 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759B2D420107D5C00DDFB10 /* JWT.swift */; };
 		B759B2D620107D5C00DDFB10 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759B2D420107D5C00DDFB10 /* JWT.swift */; };
 		B77E61C020468CAA00C4220C /* CompactJSONDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E61BF20468CAA00C4220C /* CompactJSONDecoderTests.swift */; };
+		B784054A204F8AB2007B0DB3 /* JWTPayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7840549204F8AB2007B0DB3 /* JWTPayloadTests.swift */; };
 		B7B209C7204433F4003BB264 /* SwiftyCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B209C6204433F4003BB264 /* SwiftyCrypto.framework */; };
 		B7B209C8204433F4003BB264 /* SwiftyCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B209C6204433F4003BB264 /* SwiftyCrypto.framework */; };
 		B7B209FC20443B19003BB264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B209FB20443B19003BB264 /* AppDelegate.swift */; };
@@ -103,6 +104,7 @@
 		B759B2CE2010701A00DDFB10 /* JWTRSATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTRSATests.swift; sourceTree = "<group>"; };
 		B759B2D420107D5C00DDFB10 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
 		B77E61BF20468CAA00C4220C /* CompactJSONDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactJSONDecoderTests.swift; sourceTree = "<group>"; };
+		B7840549204F8AB2007B0DB3 /* JWTPayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTPayloadTests.swift; sourceTree = "<group>"; };
 		B7B209C6204433F4003BB264 /* SwiftyCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyCrypto.framework; sourceTree = "<group>"; };
 		B7B209F920443B19003BB264 /* SwiftyJWTTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyJWTTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7B209FB20443B19003BB264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				B77E61BF20468CAA00C4220C /* CompactJSONDecoderTests.swift */,
 				B759B2CE2010701A00DDFB10 /* JWTRSATests.swift */,
 				B7B20A1C20455E5B003BB264 /* JWTHSTests.swift */,
+				B7840549204F8AB2007B0DB3 /* JWTPayloadTests.swift */,
 			);
 			path = SwiftyJWTTests;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B759B2BE200F4D4000DDFB10 /* CompactJSONEncoderTests.swift in Sources */,
+				B784054A204F8AB2007B0DB3 /* JWTPayloadTests.swift in Sources */,
 				B759B2AA200F372200DDFB10 /* JWTHeader.swift in Sources */,
 				B759B2D620107D5C00DDFB10 /* JWT.swift in Sources */,
 				B759B2CF2010701A00DDFB10 /* JWTRSATests.swift in Sources */,
