@@ -40,7 +40,7 @@ public struct JWTPayload: Codable {
         case jwtId = "jti"
     }
 
-    init() {
+    public init() {
     }
 
     public init(from decoder: Decoder) throws {
