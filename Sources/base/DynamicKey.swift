@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct DynamicKey: CodingKey {
-    var stringValue: String
-    init(stringValue: String) {
+public struct DynamicKey: CodingKey {
+    public var stringValue: String
+    public init(stringValue: String) {
         self.stringValue = stringValue
     }
-    var intValue: Int? { return nil }
-    init?(intValue: Int) { return nil }
+    public var intValue: Int? { return nil }
+    public init?(intValue: Int) { return nil }
 }

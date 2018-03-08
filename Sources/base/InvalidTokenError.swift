@@ -7,7 +7,7 @@
 //
 import Foundation
 
-enum InvalidTokenError: CustomStringConvertible, Error {
+public enum InvalidTokenError: CustomStringConvertible, Error {
     /// Decoding the JWT itself failed
     case decodeError(String)
 

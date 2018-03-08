@@ -8,18 +8,18 @@
 
 import Foundation
 
-struct EncodableValue: Codable {
-    let value: Encodable
+public struct EncodableValue: Codable {
+    public let value: Encodable
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         try value.encode(to: encoder)
     }
 
-    init(value _value: Encodable) {
+    public init(value _value: Encodable) {
         value = _value
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if let intVal = try? container.decode(Int.self) {
             value = intVal

@@ -10,12 +10,12 @@ import Foundation
 
 public struct JWT {
 
-    var header: JWTHeader!
-    var payload: JWTPayload!
-    var signature: String!
-    var rawString: String!
+    public var header: JWTHeader!
+    public var payload: JWTPayload!
+    public var signature: String!
+    public var rawString: String!
 
-    init?(payload: JWTPayload,
+    public init?(payload: JWTPayload,
         algorithm: JWTAlgorithm,
         header: JWTHeader? = nil) {
 
@@ -45,7 +45,7 @@ public struct JWT {
             Base64Utils.stringURISafe(input: signature))
     }
 
-    init(algorithm: JWTAlgorithm,
+    public init(algorithm: JWTAlgorithm,
         rawString: String) throws {
 
         let segments = rawString.components(separatedBy: ".")

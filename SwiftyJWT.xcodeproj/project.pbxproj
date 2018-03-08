@@ -31,6 +31,7 @@
 		B759B2CF2010701A00DDFB10 /* JWTRSATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759B2CE2010701A00DDFB10 /* JWTRSATests.swift */; };
 		B759B2D520107D5C00DDFB10 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759B2D420107D5C00DDFB10 /* JWT.swift */; };
 		B759B2D620107D5C00DDFB10 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759B2D420107D5C00DDFB10 /* JWT.swift */; };
+		B7664D9E20513F3F006570D4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7664D9D20513F3F006570D4 /* Info.plist */; };
 		B77E61C020468CAA00C4220C /* CompactJSONDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E61BF20468CAA00C4220C /* CompactJSONDecoderTests.swift */; };
 		B784054A204F8AB2007B0DB3 /* JWTPayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7840549204F8AB2007B0DB3 /* JWTPayloadTests.swift */; };
 		B7B209FC20443B19003BB264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B209FB20443B19003BB264 /* AppDelegate.swift */; };
@@ -92,7 +93,6 @@
 		B43748EAFD5B367ACF161339 /* Pods-SwiftyJWT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyJWT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyJWT/Pods-SwiftyJWT.debug.xcconfig"; sourceTree = "<group>"; };
 		B759B289200F351700DDFB10 /* SwiftyJWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B759B28C200F351700DDFB10 /* SwiftyJWT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyJWT.h; sourceTree = "<group>"; };
-		B759B28D200F351700DDFB10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B759B292200F351700DDFB10 /* SwiftyJWTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyJWTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B759B299200F351700DDFB10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B759B2A4200F35A600DDFB10 /* Base64Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64Utils.swift; sourceTree = "<group>"; };
@@ -106,6 +106,7 @@
 		B759B2C92010430000DDFB10 /* public.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = public.txt; sourceTree = "<group>"; };
 		B759B2CE2010701A00DDFB10 /* JWTRSATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTRSATests.swift; sourceTree = "<group>"; };
 		B759B2D420107D5C00DDFB10 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
+		B7664D9D20513F3F006570D4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B77E61BF20468CAA00C4220C /* CompactJSONDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactJSONDecoderTests.swift; sourceTree = "<group>"; };
 		B7840549204F8AB2007B0DB3 /* JWTPayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTPayloadTests.swift; sourceTree = "<group>"; };
 		B7B209F920443B19003BB264 /* SwiftyJWTTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyJWTTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,7 +288,7 @@
 				B759B2A7200F370000DDFB10 /* base */,
 				B759B2A3200F358500DDFB10 /* utils */,
 				B759B28C200F351700DDFB10 /* SwiftyJWT.h */,
-				B759B28D200F351700DDFB10 /* Info.plist */,
+				B7664D9D20513F3F006570D4 /* Info.plist */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -443,6 +444,7 @@
 			files = (
 				B759B2CA2010430000DDFB10 /* private.txt in Resources */,
 				B759B2CC2010430000DDFB10 /* public.txt in Resources */,
+				B7664D9E20513F3F006570D4 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +777,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B43748EAFD5B367ACF161339 /* Pods-SwiftyJWT.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -788,6 +791,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"SwiftyCrypto\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWT;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -802,6 +810,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9420A2A60F3DDF93B3EB417C /* Pods-SwiftyJWT.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -815,6 +824,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"SwiftyCrypto\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWT;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -828,12 +842,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 57AE6326569FBD9AA302F8F7 /* Pods-SwiftyJWTTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3C5F8F3EE;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SwiftyJWTTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"SwiftyCrypto\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWTTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
@@ -847,12 +866,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 37B2598FEAC9598D59AFC2DE /* Pods-SwiftyJWTTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3C5F8F3EE;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SwiftyJWTTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"SwiftyCrypto\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWTTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";

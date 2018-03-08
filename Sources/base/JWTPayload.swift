@@ -12,23 +12,23 @@ import Foundation
 // https://tools.ietf.org/html/rfc7519#section-4.1
 public struct JWTPayload: Codable {
     // iss
-    var issuer: String?
+    public var issuer: String?
     // sub
-    var subject: String?
+    public var subject: String?
     // aud
-    var audience: String?
+    public var audience: String?
     // exp
-    var expiration: Int?
+    public var expiration: Int?
     // nbf
-    var notBefore: Int?
+    public var notBefore: Int?
     // iat
-    var issueAt: Int?
+    public var issueAt: Int?
     // jti
-    var jwtId: String?
+    public var jwtId: String?
 
-    var customFields: [String: EncodableValue]?
+    public var customFields: [String: EncodableValue]?
 
-    static let reservedKeys = ["iss", "sub", "aud", "exp", "nbf", "iat", "jti"]
+    public static let reservedKeys = ["iss", "sub", "aud", "exp", "nbf", "iat", "jti"]
 
     enum JWTPayloadKeys: String {
         case issuer = "iss"

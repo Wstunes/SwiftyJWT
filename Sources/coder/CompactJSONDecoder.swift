@@ -7,11 +7,11 @@
 //
 import Foundation
 
-class CompactJSONDecoder: JSONDecoder {
+public class CompactJSONDecoder: JSONDecoder {
     
-    static let shared = CompactJSONDecoder()
+    public static let shared = CompactJSONDecoder()
     
-    override func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable {
+    override public func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable {
         guard let string = String(data: data, encoding: .ascii) else {
             throw InvalidTokenError.decodeError("data should contain only ASCII characters")
         }
@@ -19,7 +19,7 @@ class CompactJSONDecoder: JSONDecoder {
         return try decode(type, from: string)
     }
 
-    func decode<T>(_ type: T.Type, from string: String) throws -> T where T: Decodable {
+    public func decode<T>(_ type: T.Type, from string: String) throws -> T where T: Decodable {
         guard let decoded = Base64Utils.base64decode(string) else {
             throw InvalidTokenError.decodeError("data should be a valid base64 string")
         }
@@ -27,7 +27,7 @@ class CompactJSONDecoder: JSONDecoder {
         return try super.decode(type, from: decoded)
     }
 
-    func decode(from string: String) throws -> [String: Any] {
+    public func decode(from string: String) throws -> [String: Any] {
         guard let decoded = Base64Utils.base64decode(string) else {
             throw InvalidTokenError.decodeError("Payload is not correctly encoded as base64")
         }

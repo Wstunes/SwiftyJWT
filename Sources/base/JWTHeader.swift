@@ -11,13 +11,13 @@ import Foundation
 public struct JWTHeader: Codable {
     // Registered Claim Names
     // alg
-    var algorithm: String?
+    public var algorithm: String?
     // typ
-    private var type: String = "JWT"
+    public var type: String = "JWT"
     // kid
-    var keyId: String?
+    public var keyId: String?
 
-    init(keyId: String? = nil) {
+    public init(keyId: String? = nil) {
         self.keyId = keyId
     }
 

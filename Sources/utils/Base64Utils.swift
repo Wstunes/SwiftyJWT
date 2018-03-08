@@ -8,22 +8,22 @@
 
 import Foundation
 
-class Base64Utils: NSObject {
+public class Base64Utils: NSObject {
 
     // Normally base64 encode
-    static func base64encode(input: Data) -> String {
+    public static func base64encode(input: Data) -> String {
         let data = input.base64EncodedData()
         let string = String(data: data, encoding: .utf8)!
         return string
     }
 
-    static func base64encode(input: String) -> String? {
+    public static func base64encode(input: String) -> String? {
         let data = input.data(using: String.Encoding.utf8)
         return data?.base64EncodedString()
     }
 
     // URI Safe base64 encode
-    static func stringURISafe(input: String) -> String {
+    public static func stringURISafe(input: String) -> String {
         return input
             .replacingOccurrences(of: "+", with: "-")
             .replacingOccurrences(of: "/", with: "_")
@@ -31,7 +31,7 @@ class Base64Utils: NSObject {
     }
 
     // URI Safe base64 encode
-    static func base64encodeURISafe(input: Data) -> String {
+    public static func base64encodeURISafe(input: Data) -> String {
         let data = input.base64EncodedData()
         let string = String(data: data, encoding: .utf8)!
         return string
@@ -41,7 +41,7 @@ class Base64Utils: NSObject {
     }
 
     // URI Safe base64 decode
-    static func base64decode(_ input: String) -> Data? {
+    public static func base64decode(_ input: String) -> Data? {
         let rem = input.count % 4
 
         var ending = ""
@@ -56,7 +56,7 @@ class Base64Utils: NSObject {
         return Data(base64Encoded: base64)
     }
 
-    static func decode(encodedString: String) -> String? {
+    public static func decode(encodedString: String) -> String? {
 
         if let data = Data(base64Encoded: base64StringWithPadding(encodedString: encodedString)) {
             return String(data: data, encoding: .utf8)
@@ -64,7 +64,7 @@ class Base64Utils: NSObject {
         return nil
     }
 
-    static func base64StringWithPadding(encodedString: String) -> String {
+    public static func base64StringWithPadding(encodedString: String) -> String {
         var stringTobeEncoded = encodedString.replacingOccurrences(of: "-", with: "+")
             .replacingOccurrences(of: "_", with: "/")
         let paddingCount = encodedString.count % 4
