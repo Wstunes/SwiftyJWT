@@ -1,0 +1,12 @@
+PODS:
+  - SwiftyCrypto (0.0.1)
+
+DEPENDENCIES:
+  - SwiftyCrypto (~> 0.0.1)
+
+SPEC CHECKSUMS:
+  SwiftyCrypto: ab59cdb153a7ca99b657fa8d9ebd2ebbd7694bbe
+
+PODFILE CHECKSUM: 6e8bd3804eade050cbff41032b575974d43f381d
+
+COCOAPODS: 1.4.0

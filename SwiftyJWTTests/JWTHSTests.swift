@@ -14,7 +14,6 @@ class JWTHSTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     func testGenerateJWTSignedWithHS() {
@@ -26,16 +25,18 @@ class JWTHSTests: XCTestCase {
         payload.issuer = "yufu"
         payload.subject = "shuo"
 
-//                Test Payload content
-//                {
-//                    "height": 121.5,
-//                    "age": 125,
-//                    "sub": "shuo",
-//                    "isAdmin": true,
-//                    "exp": 515616187993,
-//                    "name": "wang",
-//                    "iss": "yufu"
-//                }
+        /*
+            Test Payload content
+            {
+                "height": 121.5,
+                "age": 125,
+                "sub": "shuo",
+                "isAdmin": true,
+                "exp": 515616187993,
+                "name": "wang",
+                "iss": "yufu"
+            }
+        */
         payload.customFields = ["name": EncodableValue(value: "wang"),
             "isAdmin": EncodableValue(value: true),
             "age": EncodableValue(value: 125),

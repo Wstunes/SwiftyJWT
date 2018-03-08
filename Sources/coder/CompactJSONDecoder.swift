@@ -5,8 +5,7 @@
 //  Created by Shuo Wang on 2018/2/28.
 //  Copyright © 2018年 Yufu. All rights reserved.
 //
-
-import UIKit
+import Foundation
 
 class CompactJSONDecoder: JSONDecoder {
     

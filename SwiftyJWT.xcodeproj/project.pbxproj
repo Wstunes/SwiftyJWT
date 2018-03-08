@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9987A1146E62C1E38580C8B0 /* Pods_SwiftyJWTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E6811204926281DB1A2E0 /* Pods_SwiftyJWTTests.framework */; };
+		AE5083F01C93F6CD3194C101 /* Pods_SwiftyJWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D709BCDDD3B61DA8E3C10B4 /* Pods_SwiftyJWT.framework */; };
 		B759B293200F351700DDFB10 /* SwiftyJWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B759B289200F351700DDFB10 /* SwiftyJWT.framework */; };
 		B759B29A200F351700DDFB10 /* SwiftyJWT.h in Headers */ = {isa = PBXBuildFile; fileRef = B759B28C200F351700DDFB10 /* SwiftyJWT.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B759B2A5200F35A600DDFB10 /* Base64Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759B2A4200F35A600DDFB10 /* Base64Utils.swift */; };
@@ -31,15 +33,12 @@
 		B759B2D620107D5C00DDFB10 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759B2D420107D5C00DDFB10 /* JWT.swift */; };
 		B77E61C020468CAA00C4220C /* CompactJSONDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E61BF20468CAA00C4220C /* CompactJSONDecoderTests.swift */; };
 		B784054A204F8AB2007B0DB3 /* JWTPayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7840549204F8AB2007B0DB3 /* JWTPayloadTests.swift */; };
-		B7B209C7204433F4003BB264 /* SwiftyCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B209C6204433F4003BB264 /* SwiftyCrypto.framework */; };
-		B7B209C8204433F4003BB264 /* SwiftyCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B209C6204433F4003BB264 /* SwiftyCrypto.framework */; };
 		B7B209FC20443B19003BB264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B209FB20443B19003BB264 /* AppDelegate.swift */; };
 		B7B209FE20443B19003BB264 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B209FD20443B19003BB264 /* ViewController.swift */; };
 		B7B20A0120443B19003BB264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B209FF20443B19003BB264 /* Main.storyboard */; };
 		B7B20A0320443B19003BB264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7B20A0220443B19003BB264 /* Assets.xcassets */; };
 		B7B20A0620443B19003BB264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B20A0420443B19003BB264 /* LaunchScreen.storyboard */; };
 		B7B20A1120443B1A003BB264 /* SwiftyJWTTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B20A1020443B1A003BB264 /* SwiftyJWTTestAppTests.swift */; };
-		B7B20A1B204502E5003BB264 /* SwiftyCrypto.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7B209C6204433F4003BB264 /* SwiftyCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B7B20A1D20455E5B003BB264 /* JWTHSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B20A1C20455E5B003BB264 /* JWTHSTests.swift */; };
 		B7B20A20204653D8003BB264 /* CompactJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B20A1F204653D8003BB264 /* CompactJSONDecoder.swift */; };
 		B7B20A21204653D8003BB264 /* CompactJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B20A1F204653D8003BB264 /* CompactJSONDecoder.swift */; };
@@ -80,13 +79,17 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B7B20A1B204502E5003BB264 /* SwiftyCrypto.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		37B2598FEAC9598D59AFC2DE /* Pods-SwiftyJWTTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyJWTTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyJWTTests/Pods-SwiftyJWTTests.release.xcconfig"; sourceTree = "<group>"; };
+		3D709BCDDD3B61DA8E3C10B4 /* Pods_SwiftyJWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyJWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57AE6326569FBD9AA302F8F7 /* Pods-SwiftyJWTTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyJWTTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyJWTTests/Pods-SwiftyJWTTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9420A2A60F3DDF93B3EB417C /* Pods-SwiftyJWT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyJWT.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyJWT/Pods-SwiftyJWT.release.xcconfig"; sourceTree = "<group>"; };
+		B43748EAFD5B367ACF161339 /* Pods-SwiftyJWT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyJWT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyJWT/Pods-SwiftyJWT.debug.xcconfig"; sourceTree = "<group>"; };
 		B759B289200F351700DDFB10 /* SwiftyJWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B759B28C200F351700DDFB10 /* SwiftyJWT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyJWT.h; sourceTree = "<group>"; };
 		B759B28D200F351700DDFB10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,7 +108,6 @@
 		B759B2D420107D5C00DDFB10 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
 		B77E61BF20468CAA00C4220C /* CompactJSONDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactJSONDecoderTests.swift; sourceTree = "<group>"; };
 		B7840549204F8AB2007B0DB3 /* JWTPayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTPayloadTests.swift; sourceTree = "<group>"; };
-		B7B209C6204433F4003BB264 /* SwiftyCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyCrypto.framework; sourceTree = "<group>"; };
 		B7B209F920443B19003BB264 /* SwiftyJWTTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyJWTTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7B209FB20443B19003BB264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7B209FD20443B19003BB264 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		B7B20A1F204653D8003BB264 /* CompactJSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactJSONDecoder.swift; sourceTree = "<group>"; };
 		B7B20A2220465474003BB264 /* InvalidTokenError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidTokenError.swift; sourceTree = "<group>"; };
 		B7FF17C220162F1100030917 /* EncodableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableValue.swift; sourceTree = "<group>"; };
+		E27E6811204926281DB1A2E0 /* Pods_SwiftyJWTTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyJWTTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7B209C7204433F4003BB264 /* SwiftyCrypto.framework in Frameworks */,
+				AE5083F01C93F6CD3194C101 /* Pods_SwiftyJWT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B759B293200F351700DDFB10 /* SwiftyJWT.framework in Frameworks */,
-				B7B209C8204433F4003BB264 /* SwiftyCrypto.framework in Frameworks */,
+				9987A1146E62C1E38580C8B0 /* Pods_SwiftyJWTTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,14 +160,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A8C78D7990387F4574083AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B43748EAFD5B367ACF161339 /* Pods-SwiftyJWT.debug.xcconfig */,
+				9420A2A60F3DDF93B3EB417C /* Pods-SwiftyJWT.release.xcconfig */,
+				57AE6326569FBD9AA302F8F7 /* Pods-SwiftyJWTTests.debug.xcconfig */,
+				37B2598FEAC9598D59AFC2DE /* Pods-SwiftyJWTTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		636E1B4F2332B9C023B71A1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D709BCDDD3B61DA8E3C10B4 /* Pods_SwiftyJWT.framework */,
+				E27E6811204926281DB1A2E0 /* Pods_SwiftyJWTTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B759B27F200F351700DDFB10 = {
 			isa = PBXGroup;
 			children = (
-				B759B28B200F351700DDFB10 /* SwiftyJWT */,
+				B7C99790205124F5006B91F1 /* Sources */,
 				B759B296200F351700DDFB10 /* SwiftyJWTTests */,
 				B7B209FA20443B19003BB264 /* SwiftyJWTTestApp */,
 				B7B20A0F20443B1A003BB264 /* SwiftyJWTTestAppTests */,
 				B759B28A200F351700DDFB10 /* Products */,
+				1A8C78D7990387F4574083AD /* Pods */,
+				636E1B4F2332B9C023B71A1C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,19 +202,6 @@
 				B7B20A0C20443B1A003BB264 /* SwiftyJWTTestAppTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		B759B28B200F351700DDFB10 /* SwiftyJWT */ = {
-			isa = PBXGroup;
-			children = (
-				B7B20A1E2046534E003BB264 /* coder */,
-				B759B2AB200F377000DDFB10 /* crypto */,
-				B759B2A7200F370000DDFB10 /* base */,
-				B759B2A3200F358500DDFB10 /* utils */,
-				B759B28C200F351700DDFB10 /* SwiftyJWT.h */,
-				B759B28D200F351700DDFB10 /* Info.plist */,
-			);
-			path = SwiftyJWT;
 			sourceTree = "<group>";
 		};
 		B759B296200F351700DDFB10 /* SwiftyJWTTests */ = {
@@ -231,7 +243,6 @@
 		B759B2AB200F377000DDFB10 /* crypto */ = {
 			isa = PBXGroup;
 			children = (
-				B7B209C6204433F4003BB264 /* SwiftyCrypto.framework */,
 				B759B2AC200F378700DDFB10 /* JWTAlgorithm.swift */,
 			);
 			path = crypto;
@@ -268,6 +279,19 @@
 			path = coder;
 			sourceTree = "<group>";
 		};
+		B7C99790205124F5006B91F1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B7B20A1E2046534E003BB264 /* coder */,
+				B759B2AB200F377000DDFB10 /* crypto */,
+				B759B2A7200F370000DDFB10 /* base */,
+				B759B2A3200F358500DDFB10 /* utils */,
+				B759B28C200F351700DDFB10 /* SwiftyJWT.h */,
+				B759B28D200F351700DDFB10 /* Info.plist */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -286,10 +310,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B759B29D200F351700DDFB10 /* Build configuration list for PBXNativeTarget "SwiftyJWT" */;
 			buildPhases = (
+				CCC3EC95E5F04C9646CD2157 /* [CP] Check Pods Manifest.lock */,
 				B759B284200F351700DDFB10 /* Sources */,
 				B759B285200F351700DDFB10 /* Frameworks */,
 				B759B286200F351700DDFB10 /* Headers */,
 				B759B287200F351700DDFB10 /* Resources */,
+				058CE866B9F590C04DAE962C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -304,10 +330,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B759B2A0200F351700DDFB10 /* Build configuration list for PBXNativeTarget "SwiftyJWTTests" */;
 			buildPhases = (
+				5DC6DAFEEFFB4536732D78A1 /* [CP] Check Pods Manifest.lock */,
 				B759B28E200F351700DDFB10 /* Sources */,
 				B759B28F200F351700DDFB10 /* Frameworks */,
 				B759B290200F351700DDFB10 /* Resources */,
 				B759B2C62010428700DDFB10 /* CopyFiles */,
+				872C26F2F4002234709CC3DC /* [CP] Embed Pods Frameworks */,
+				D268EF61B70F12FD956C93A0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -444,6 +473,93 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		058CE866B9F590C04DAE962C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyJWT/Pods-SwiftyJWT-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DC6DAFEEFFB4536732D78A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftyJWTTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		872C26F2F4002234709CC3DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyJWTTests/Pods-SwiftyJWTTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyCrypto/SwiftyCrypto.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyCrypto.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyJWTTests/Pods-SwiftyJWTTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCC3EC95E5F04C9646CD2157 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftyJWT-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D268EF61B70F12FD956C93A0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyJWTTests/Pods-SwiftyJWTTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B759B284200F351700DDFB10 /* Sources */ = {
@@ -657,6 +773,7 @@
 		};
 		B759B29E200F351700DDFB10 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B43748EAFD5B367ACF161339 /* Pods-SwiftyJWT.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -666,17 +783,15 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SwiftyJWT/crypto",
-				);
-				INFOPLIST_FILE = SwiftyJWT/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWT;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -685,6 +800,7 @@
 		};
 		B759B29F200F351700DDFB10 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9420A2A60F3DDF93B3EB417C /* Pods-SwiftyJWT.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -694,17 +810,15 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SwiftyJWT/crypto",
-				);
-				INFOPLIST_FILE = SwiftyJWT/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWT;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -712,18 +826,17 @@
 		};
 		B759B2A1200F351700DDFB10 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57AE6326569FBD9AA302F8F7 /* Pods-SwiftyJWTTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3C5F8F3EE;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SwiftyJWT/crypto",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SwiftyJWTTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWTTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyJWTTestApp.app/SwiftyJWTTestApp";
@@ -732,18 +845,17 @@
 		};
 		B759B2A2200F351700DDFB10 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37B2598FEAC9598D59AFC2DE /* Pods-SwiftyJWTTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3C5F8F3EE;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SwiftyJWT/crypto",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SwiftyJWTTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWTTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyJWTTestApp.app/SwiftyJWTTestApp";
@@ -761,6 +873,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWTTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -777,6 +890,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWTTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -794,6 +908,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWTTestAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyJWTTestApp.app/SwiftyJWTTestApp";
@@ -812,6 +927,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufu.SwiftyJWTTestAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyJWTTestApp.app/SwiftyJWTTestApp";
