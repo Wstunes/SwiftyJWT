@@ -33,7 +33,8 @@ class JWTPayloadTests: XCTestCase {
         let payload = try? CompactJSONDecoder.shared.decode(JWTPayload.self, from: encodedPayload)
         XCTAssertNotNil(payload)
 
-        XCTAssertThrowsError(try payload?.checkExpiration())
+        XCTAssertThrowsError(try payload?.checkExpiration(allowNil: false))
+        XCTAssertNoThrow(try payload?.checkExpiration(allowNil: true))
 
         XCTAssertThrowsError(try payload?.checkIssueAt(allowNil: false))
         XCTAssertNoThrow(try payload?.checkIssueAt(allowNil: true))
