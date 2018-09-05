@@ -33,8 +33,9 @@ class JWTPayloadTests: XCTestCase {
         let payload = try? CompactJSONDecoder.shared.decode(JWTPayload.self, from: encodedPayload)
         XCTAssertNotNil(payload)
 
+        // expiration is not nil, so it always is expired
         XCTAssertThrowsError(try payload?.checkExpiration(allowNil: false))
-        XCTAssertNoThrow(try payload?.checkExpiration(allowNil: true))
+        XCTAssertThrowsError(try payload?.checkExpiration(allowNil: true))
 
         XCTAssertThrowsError(try payload?.checkIssueAt(allowNil: false))
         XCTAssertNoThrow(try payload?.checkIssueAt(allowNil: true))
