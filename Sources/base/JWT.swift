@@ -59,7 +59,7 @@ public struct JWT {
 
         self.header = try CompactJSONDecoder.shared.decode(JWTHeader.self, from: encodedHeader)
         self.payload = try CompactJSONDecoder.shared.decode(JWTPayload.self, from: encodedPayload)
-        try self.payload.checkExpiration(allowNil: true)
+        try self.payload.checkExpiration()
         try self.payload.checkIssueAt(allowNil: true)
         try self.payload.checkNotBefore(allowNil: true)
 
