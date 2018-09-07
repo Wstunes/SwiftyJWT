@@ -117,8 +117,8 @@ public struct JWTPayload: Codable {
         try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.notBefore.rawValue), rightCompareResult: .orderedAscending, allowNil: allowNil)
     }
 
-    public func checkExpiration() throws {
-        try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.expiration.rawValue), rightCompareResult: .orderedDescending, allowNil: false)
+    public func checkExpiration(allowNil: Bool) throws {
+        try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.expiration.rawValue), rightCompareResult: .orderedDescending, allowNil: allowNil)
     }
 
     public func checkIssueAt(allowNil: Bool) throws {

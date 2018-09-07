@@ -46,11 +46,11 @@ public enum JWTAlgorithm: CustomStringConvertible {
         case .none:
             return ""
         case .rs256(let privateKey):
-            return signWithRSA(key: privateKey, rawMessageTobeSigned: message)
+            return signWithRSA(digestType: RSASignature.DigestType.sha256, key: privateKey, rawMessageTobeSigned: message)
         case .rs384(let privateKey):
-            return signWithRSA(key: privateKey, rawMessageTobeSigned: message)
+            return signWithRSA(digestType: RSASignature.DigestType.sha384, key: privateKey, rawMessageTobeSigned: message)
         case .rs512(let privateKey):
-            return signWithRSA(key: privateKey, rawMessageTobeSigned: message)
+            return signWithRSA(digestType: RSASignature.DigestType.sha512, key: privateKey, rawMessageTobeSigned: message)
         case .hs256(let key):
             return hashWithHS(alg: .sha256, key: key, rawMessageTobeSigned: message)
         case .hs384(let key):
@@ -71,7 +71,7 @@ public enum JWTAlgorithm: CustomStringConvertible {
                 signatureSegment == Base64Utils.stringURISafe(input: urlUnsafeHashedString)
         }
 
-        func verify(publicKey: RSAKey, signatureSegment: String, rawMessage: String) -> Bool {
+        func verify(digestType: RSASignature.DigestType, publicKey: RSAKey, signatureSegment: String, rawMessage: String) -> Bool {
 
             guard let sigData = Data.init(base64Encoded: Base64Utils.base64StringWithPadding(encodedString: signatureSegment)) else {
                 return false
@@ -80,7 +80,7 @@ public enum JWTAlgorithm: CustomStringConvertible {
 
             guard let encodedMessage = Base64Utils.base64encode(input: rawMessage),
                 let rsaMessage = try? RSAMessage.init(base64String: encodedMessage),
-                let res = try? rsaMessage.verify(verifyKey: publicKey, signature: sig, digestType: RSASignature.DigestType.sha256) else {
+                let res = try? rsaMessage.verify(verifyKey: publicKey, signature: sig, digestType: digestType) else {
                     return false
             }
             return res
@@ -90,11 +90,11 @@ public enum JWTAlgorithm: CustomStringConvertible {
         case .none:
             return true
         case .rs256(let publicKey):
-            return verify(publicKey: publicKey, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
+            return verify(digestType: RSASignature.DigestType.sha256, publicKey: publicKey, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
         case .rs384(let publicKey):
-            return verify(publicKey: publicKey, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
+            return verify(digestType: RSASignature.DigestType.sha384, publicKey: publicKey, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
         case .rs512(let publicKey):
-            return verify(publicKey: publicKey, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
+            return verify(digestType: RSASignature.DigestType.sha512, publicKey: publicKey, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
         case .hs256(let key):
             return verify(hmacAlg: HMACAlgorithm.sha256, key: key, signatureSegment: base64EncodedSignature, rawMessage: rawMessage)
         case .hs384(let key):
@@ -104,10 +104,10 @@ public enum JWTAlgorithm: CustomStringConvertible {
         }
     }
 
-    private func signWithRSA(key: RSAKey, rawMessageTobeSigned: String) -> String? {
+    private func signWithRSA(digestType: RSASignature.DigestType, key: RSAKey, rawMessageTobeSigned: String) -> String? {
         do {
             let base64Message = try RSAMessage.init(base64String: Base64Utils.base64encode(input: rawMessageTobeSigned.data(using: String.Encoding.utf8)!))
-            let signature = try base64Message.sign(signingKey: key, digestType: RSASignature.DigestType.sha256)
+            let signature = try base64Message.sign(signingKey: key, digestType: digestType)
             return signature.base64String
         } catch {
             return nil
