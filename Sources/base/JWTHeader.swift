@@ -25,7 +25,9 @@ public struct JWTHeader: Codable {
         let container = try decoder.container(keyedBy: DynamicKey.self)
         algorithm = try container.decodeIfPresent(String.self, forKey: DynamicKey(stringValue: JWTHeaderCodingKeys.algorithm.rawValue))
         keyId = try container.decodeIfPresent(String.self, forKey: DynamicKey(stringValue: JWTHeaderCodingKeys.keyId.rawValue))
-        type = (try container.decodeIfPresent(String.self, forKey: DynamicKey(stringValue: JWTHeaderCodingKeys.type.rawValue)))!
+        if let type = try container.decodeIfPresent(String.self, forKey: DynamicKey(stringValue: JWTHeaderCodingKeys.type.rawValue)) {
+    			self.type = type
+    		}
     }
 
     public func encode(to encoder: Encoder) throws {
