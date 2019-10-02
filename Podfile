@@ -4,12 +4,12 @@ use_frameworks!
 
 target 'SwiftyJWT' do
 
-pod 'SwiftyCrypto', '~> 0.0.1'
+pod 'SwiftyCrypto', :git => 'https://github.com/ldelosheros/SwiftyCrypto'
 
 end
 
 target 'SwiftyJWTTests' do
 
-pod 'SwiftyCrypto', '~> 0.0.1'
+pod 'SwiftyCrypto', :git => 'https://github.com/ldelosheros/SwiftyCrypto'
 
 end
