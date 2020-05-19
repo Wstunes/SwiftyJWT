@@ -29,8 +29,15 @@ public struct EncodableValue: Codable {
             value = boolVal
         } else if let stringVal = try? container.decode(String.self) {
             value = stringVal
+        } else if let arrayStringVal = try? container.decode(Array<String>.self) {
+            value = arrayStringVal
+        } else if let arrayVal = try? container.decode(Array<EncodableValue>.self) {
+            value = arrayVal
+        } else if let mapVal = try? container.decode([String: EncodableValue].self) {
+            value = mapVal
         } else {
-            throw DecodingError.dataCorruptedError(in: container, debugDescription: "the container contains nothing to serialize")
+            throw DecodingError.dataCorruptedError(in: container,
+                                                   debugDescription: "the container contains nothing to serialize")
         }
     }
 }
