@@ -27,7 +27,7 @@ public enum InvalidTokenError: CustomStringConvertible, Error {
     case invalidIssuedAt(String)
 
     /// The audience of the claim doesn't match
-    case invalidAudience(String)
+    case invalidAudience([String?]?)
 
     /// The issuer of the claim doesn't match
     case invalidIssuer(String)
