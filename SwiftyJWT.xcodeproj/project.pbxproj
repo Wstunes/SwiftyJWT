@@ -316,7 +316,6 @@
 				B759B285200F351700DDFB10 /* Frameworks */,
 				B759B286200F351700DDFB10 /* Headers */,
 				B759B287200F351700DDFB10 /* Resources */,
-				058CE866B9F590C04DAE962C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -337,7 +336,6 @@
 				B759B290200F351700DDFB10 /* Resources */,
 				B759B2C62010428700DDFB10 /* CopyFiles */,
 				872C26F2F4002234709CC3DC /* [CP] Embed Pods Frameworks */,
-				D268EF61B70F12FD956C93A0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -477,21 +475,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		058CE866B9F590C04DAE962C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyJWT/Pods-SwiftyJWT-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5DC6DAFEEFFB4536732D78A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -516,7 +499,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyJWTTests/Pods-SwiftyJWTTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftyJWTTests/Pods-SwiftyJWTTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftyCrypto/SwiftyCrypto.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -525,7 +508,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyJWTTests/Pods-SwiftyJWTTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftyJWTTests/Pods-SwiftyJWTTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CCC3EC95E5F04C9646CD2157 /* [CP] Check Pods Manifest.lock */ = {
@@ -544,21 +527,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D268EF61B70F12FD956C93A0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyJWTTests/Pods-SwiftyJWTTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

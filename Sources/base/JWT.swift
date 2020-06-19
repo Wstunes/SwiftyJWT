@@ -46,7 +46,7 @@ public struct JWT {
     }
 
     public init(algorithm: JWTAlgorithm,
-        rawString: String) throws {
+                rawString: String, leeway: Int = 0) throws {
 
         let segments = rawString.components(separatedBy: ".")
         if segments.count != 3 {
@@ -59,9 +59,9 @@ public struct JWT {
 
         self.header = try CompactJSONDecoder.shared.decode(JWTHeader.self, from: encodedHeader)
         self.payload = try CompactJSONDecoder.shared.decode(JWTPayload.self, from: encodedPayload)
-        try self.payload.checkExpiration(allowNil: false)
-        try self.payload.checkIssueAt(allowNil: true)
-        try self.payload.checkNotBefore(allowNil: true)
+        try self.payload.checkExpiration(allowNil: false, leeway: leeway)
+        try self.payload.checkIssueAt(allowNil: true, leeway: leeway)
+        try self.payload.checkNotBefore(allowNil: true, leeway: leeway)
 
         if try !algorithm.verify(base64EncodedSignature: signatureSegment, rawMessage: "\(encodedHeader).\(encodedPayload)") {
             throw InvalidTokenError.invalidSignature()

@@ -85,49 +85,62 @@ public struct JWTPayload: Codable {
         }
     }
 
-    private func validateDate(key: DynamicKey, rightCompareResult: ComparisonResult, allowNil: Bool) throws {
+    private func validateDate(key: DynamicKey, rightCompareResult: ComparisonResult, allowNil: Bool, leeway: Int = 0) throws {
 
         var error: InvalidTokenError
         var value: Int?
 
         switch key.stringValue {
         case "nbf":
-            value = notBefore
             error = InvalidTokenError.invalidNotBefore("\(notBefore ?? 0)")
+            guard let notBefore = notBefore else {
+                try throwInvalidOrMissingArgument(argument: key.stringValue, allowNil: allowNil)
+                return
+            }
+            value = notBefore - leeway
         case "iat":
-            value = issueAt
             error = InvalidTokenError.invalidIssuedAt("\(issueAt ?? 0)")
+            guard let issueAt = issueAt else {
+                try throwInvalidOrMissingArgument(argument: key.stringValue, allowNil: allowNil)
+                return
+            }
+            value = issueAt - leeway
         case "exp":
-            value = expiration
             error = InvalidTokenError.expiredToken("\(expiration ?? 0)")
+            guard let expiration = expiration else {
+                try throwInvalidOrMissingArgument(argument: key.stringValue, allowNil: allowNil)
+                return
+            }
+            value = expiration + leeway
         default:
             throw InvalidTokenError.invalidOrMissingArgument(key.stringValue)
         }
 
-        if value == nil {
-            if allowNil {
-                return
-            } else {
-                throw InvalidTokenError.invalidOrMissingArgument(key.stringValue)
-            }
-        }
-
         let date = Date(timeIntervalSince1970: Double(value!))
-        if date.compare(Date()) != rightCompareResult {
+        let now = Date()
+        if date.compare(now) != rightCompareResult {
             throw error
         }
     }
-
-    public func checkNotBefore(allowNil: Bool) throws {
-        try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.notBefore.rawValue), rightCompareResult: .orderedAscending, allowNil: allowNil)
+    
+    private func throwInvalidOrMissingArgument(argument: String, allowNil: Bool) throws {
+        if allowNil {
+            return
+        } else {
+            throw InvalidTokenError.invalidOrMissingArgument(argument)
+        }
     }
 
-    public func checkExpiration(allowNil: Bool) throws {
-        try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.expiration.rawValue), rightCompareResult: .orderedDescending, allowNil: allowNil)
+    public func checkNotBefore(allowNil: Bool, leeway: Int = 0) throws {
+        try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.notBefore.rawValue), rightCompareResult: .orderedAscending, allowNil: allowNil, leeway: leeway)
     }
 
-    public func checkIssueAt(allowNil: Bool) throws {
-        try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.issueAt.rawValue), rightCompareResult: .orderedAscending, allowNil: allowNil)
+    public func checkExpiration(allowNil: Bool, leeway: Int = 0) throws {
+        try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.expiration.rawValue), rightCompareResult: .orderedDescending, allowNil: allowNil, leeway: leeway)
+    }
+
+    public func checkIssueAt(allowNil: Bool, leeway: Int = 0) throws {
+        try validateDate(key: DynamicKey.init(stringValue: JWTPayloadKeys.issueAt.rawValue), rightCompareResult: .orderedAscending, allowNil: allowNil, leeway: leeway)
     }
 
     private let nullValue = "null"
