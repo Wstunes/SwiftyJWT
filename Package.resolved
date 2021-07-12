@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftyCrypto",
+        "repositoryURL": "https://github.com/arthurdapaz/SwiftyCrypto",
+        "state": {
+          "branch": null,
+          "revision": "066721af51ef5f25c6170a6a10586a91841f4f02",
+          "version": "0.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

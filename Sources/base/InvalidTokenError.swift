@@ -15,7 +15,7 @@ public enum InvalidTokenError: CustomStringConvertible, Error {
     case invalidAlgorithm(String)
     
     /// The JWT signature can not be verified
-    case invalidSignature()
+    case invalidSignature
 
     /// The token has expired
     case expiredToken(String)
@@ -54,7 +54,7 @@ public enum InvalidTokenError: CustomStringConvertible, Error {
         case .invalidIssuedAt(let iatTime):
             return "Issued at claim (iat) is in the future: \(iatTime)"
         case .invalidAudience(let aud):
-            return "Invalid Audience: \(aud)"
+            return "Invalid Audience: \(String(describing: aud))"
         case .invalidAlgorithm(let alg):
             return "Unsupported algorithm: \(alg)"
         case .invalidSubject(let sub):
@@ -63,7 +63,7 @@ public enum InvalidTokenError: CustomStringConvertible, Error {
             return "Invalid JTI: \(jti)"
         case .invalidOrMissingArgument(let argumentName) :
             return "InvalidOrMissingArgument: \(argumentName)"
-        case .invalidSignature():
+        case .invalidSignature:
             return "InvalidSignature"
         }
     }
