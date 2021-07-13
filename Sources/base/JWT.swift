@@ -64,7 +64,7 @@ public struct JWT {
         try self.payload.checkNotBefore(allowNil: true)
 
         if try !algorithm.verify(base64EncodedSignature: signatureSegment, rawMessage: "\(encodedHeader).\(encodedPayload)") {
-            throw InvalidTokenError.invalidSignature()
+            throw InvalidTokenError.invalidSignature
         }
 
         self.signature = signatureSegment
